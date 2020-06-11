@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Notes</title>
+{% endblock %}
+
+{% block body %}
+<h1>Change Notes</h1>
+<div class="table-content">
+    
+    <form action="/change/{{entry.id}}" method="POST">
+        <input type="text" id="new_content" name="new_content" value="{{ entry.content }}"/>
+        <input type="submit" value="Update"/>
+    </form>
+</div>
+{% endblock %}

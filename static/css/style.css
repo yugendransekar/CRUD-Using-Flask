@@ -1,0 +1,15 @@
+body
+{
+    text-align: center;
+}
+
+h1
+{
+    text-align: center;
+} 
+
+div.table-content table
+{
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Notes</title>
+{% endblock %}
+
+{% block body %}
+<h1>Notes</h1>
+<div class="table-content">
+    {% if enteries|length < 1 %}
+    <h4>There are no notes. Create new ones!!!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Added on</th>
+            <th>Note</th>
+            <th>Actions</th>
+        </tr>
+        {% for entry in enteries %}
+            <tr>
+                <td>{{ entry.date.date() }}</td>
+                <td>{{ entry.content }}</td>
+                <td>
+                    <a href="/change/{{entry.id}}">Change</a><br>
+                    <a href="/remove/{{entry.id}}">Remove</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <form action="/" method="POST">
+        <input type="text" id="new_content" name="new_content"/>
+        <input type="submit" value="Add"/>
+    </form>
+</div>
+{% endblock %}
